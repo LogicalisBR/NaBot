@@ -2,6 +2,7 @@
 ![NaBot](./logicalis-bot.png)
 
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/LogicalisBR/NaBot)
+
 This is meant to be used as an example on how to build a Cisco Webex Bot
 with [netbox](https://github.com/netbox-community/netbox) Integration (via the nornir_scrapli inventory plugin). This
 bot is based on [docker-webexteams-bot-example](https://github.com/haskalpa/docker-webexteams-bot-example) and adds [pyadaptivecards](https://github.com/CiscoSE/pyadaptivecards) functionalities for handling user input. The bot is based
