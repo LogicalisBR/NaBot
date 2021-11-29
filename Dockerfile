@@ -1,6 +1,6 @@
 FROM ubuntu:20.04 
-RUN apt-get -y update --fix-missing\ 
-    && apt-get -y install --no-install-recommends --fix-missing  \
+RUN apt-get -y update \ 
+    && apt-get -y install --no-install-recommends \
     build-essential \
     python3-dev \
     python3-pip \

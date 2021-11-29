@@ -48,6 +48,7 @@ def answer_message_received(teams_api, json_data):
                 teams_api.messages.create(room.id, text='Incorrect input. Please send like: \n '
                                                         '/show <hostname> "<command>"\n '
                                                         'ex: /show iosxr1 "show ip int b"')
+<<<<<<< HEAD
 
             elif len(message_params) < 3 and '/diff' in user_action:
                 teams_api.messages.create(room.id, text='Incorrect input. Please send like: \n '
@@ -56,6 +57,8 @@ def answer_message_received(teams_api, json_data):
                                                         '  description Sample description'
                                                         '  no shutdown')
 
+=======
+>>>>>>> e0d2dc9 (Initial commit)
             elif len(message_params) < 2:
                 teams_api.messages.create(room.id, text='Incorrect input. Please send like: \n '
                                                         '/info <hostname> \n '
@@ -65,7 +68,11 @@ def answer_message_received(teams_api, json_data):
                 dict_params = dict(zip_longest(variables_params, message_params))
                 print(dict_params)
                 answer_action(teams_api, room.id, user_action.strip('/'), hostname=dict_params['hostname'],
+<<<<<<< HEAD
                               user_input=dict_params['command'])
+=======
+                              show_command=dict_params['command'])
+>>>>>>> e0d2dc9 (Initial commit)
         else:
             # attachment = create_card_show_line()
             teams_api.messages.create(room.id, text='Initial card', attachments=[initial_card()])
