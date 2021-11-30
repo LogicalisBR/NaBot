@@ -207,22 +207,21 @@ if __name__ == "__main__":
     target_host = args['hostname']
     print(f"Target host is {target_host}")
 
-    # Print inventory dict
+    # Print inventory dict without secret
     if args["inventory"]:
         nr = init(hostname_filter=target_host)
+        nr.inventory.dict()['hosts'][target_host].pop('password')
         pprint(nr.inventory.dict()['hosts'])
 
     # Run Show command on device with scrapli
     elif args["exec"]:
-        nr = init(target_host)
-        command = "show ip interface brief"
-        result = send_show_command(nr, command)
+        command = args['exec']
+        result = send_show_command(target_host, command)
         print_result(result)
 
     # Run configuration backup on device
     elif args["backup"]:
-        nr = init(target_host)
-        result = get_config_backup(nr)
+        result = get_config_backup(target_host)
         print_result(result)
 
     # Run configuration dry-run on device
