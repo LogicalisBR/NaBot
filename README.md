@@ -52,7 +52,7 @@ The file config/nornir_config_example.yaml is a *nornir* configuration file. Ren
 
 Also, update the config/config_example.yaml  with the Token you previously generated for your bot and rename it config/config.yaml. This is how the Bot will authenticate with the Webex API.
 
-If you already have a Webex instance in your network, you may just build the main container.
+If you already have a Netbox instance in your network, you may just build the main container.
 ```
 # Building for the first time
 ./build.sh
@@ -65,7 +65,7 @@ If you already have a Webex instance in your network, you may just build the mai
 
 ```
 
-Alternatively to running the above scripts, you can use docker-compose to instantiate a local netbox instance with default credentials.
+Alternatively to running the above scripts, you can use docker-compose to instantiate nabot + a local netbox container with default credentials.
 ```
 docker-compose build
 docker-compose up -d
@@ -141,8 +141,9 @@ The back-end can be tested from inside the running container:
 docker exec -it <container-id> /bin/bash
 ```
 
+Usage instructions
 ```
-python3 nornir_helper.py [hostname] [--inventory] [--exec COMMAND] [--backup]
+python3 nornir_helper.py [hostname] [--inventory] [--exec COMMAND] [--backup] [--config "multiline config"] [--dry-run "multiline config"]
 ```
 
 For example, this command would print out the Nornir dictionary for host iosxr1, with all data it gathered from Netbox in dictionary format, excluding password.
@@ -150,13 +151,23 @@ For example, this command would print out the Nornir dictionary for host iosxr1,
 python3 nornir_helper.py iosxr1 --inventory
 ```
 
-The syntax can be used to run arbitrary exec mode commands.
+This syntax can be used to run arbitrary exec mode commands.
 ```
 python3 nornir_helper.py iosxr1 --exec "show ip int brief"
 ```
 
 Sample test result:
+
 ![Testing nornir_helper.py](./testing-nornir-helper.png)
+
+Configuration blocks can also be sent via the CLI. They will use nornir_scrapli diff_cfg and commit_cfg methods.
+The return string will be a scrapli side-by-side-diff
+
+```
+python3 nornir_helper.py iosxr1 --dry-run "ntp server 1.1.1.1"
+```
+
+
 
 ## Open a conversation with the Bot
 <a href="#conversation"></a>

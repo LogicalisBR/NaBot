@@ -161,7 +161,6 @@ def init(hostname_filter: str):
 
 # The script can be run from the CLI to test some functions
 if __name__ == "__main__":
-    CONFIG_FILE = '/opt/config/netbox_config.yaml'
     parser = argparse.ArgumentParser(description="Nornir Netbox Helper CLI")
     parser.add_argument(
         "hostname",
@@ -210,8 +209,9 @@ if __name__ == "__main__":
     # Print inventory dict without secret
     if args["inventory"]:
         nr = init(hostname_filter=target_host)
-        nr.inventory.dict()['hosts'][target_host].pop('password')
-        pprint(nr.inventory.dict()['hosts'])
+        device_info = nr.inventory.hosts[target_host].dict()
+        device_info.pop('password')
+        pprint(device_info)
 
     # Run Show command on device with scrapli
     elif args["exec"]:
@@ -226,12 +226,10 @@ if __name__ == "__main__":
 
     # Run configuration dry-run on device
     elif args["dry_run"]:
-        nr = init(target_host)
-        result = get_config_diff(nr, args["dry_run"])
+        result = get_config_diff(target_host, args["dry_run"])
         print(result)
 
     # Run configuration backup on device
     elif args["config"]:
-        nr = init(target_host)
-        result = set_config(nr, args["config"])
+        result = set_config(target_host, args["config"])
         print(result)
