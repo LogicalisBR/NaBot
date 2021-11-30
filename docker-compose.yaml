@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  # Main container used for the BOT
+  network_assistant_bot:
+    build: .
+    ports:
+      - "5001:4040"
+      - "5002:5000"
+    volumes:
+      - ./network_assistant_bot:/network_assistant_bot
+      - ./helpers:/network_assistant_bot/helpers
+      - ./config:/opt/config
+    environment:
+      PYTHONPATH : /network_assistant_bot/
+    entrypoint: /network_assistant_bot/run.sh
+  # Netbox container image required for inventory
+  #  This initializes an empty Netbox container instance,
+  #  you can for example populate one of Cisco's Always-ON
+  #  Devnet Sandboxes
+  netbox:
+    image: netboxcommunity/netbox:v3.0
+    ports:
+      - 8000:8080

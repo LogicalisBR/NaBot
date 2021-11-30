@@ -1,0 +1,16 @@
+---
+inventory:
+  plugin: NetBoxInventory2
+  options:
+    nb_url: <NETBOX_URL>
+    nb_token: <NETBOX_API_TOKEN>
+    ssl_verify: False
+  transform_function: "convert_host_data"
+
+runner:
+  plugin: threaded
+  options:
+    num_workers: 10
+
+ssh:
+  config_file: '../ssh_config'

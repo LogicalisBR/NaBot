@@ -1,0 +1,16 @@
+---
+inventory:
+  plugin: NetBoxInventory2
+  options:
+    nb_url: "http://192.168.151.35:8000"
+    nb_token: "0123456789abcdef0123456789abcdef01234567"
+    ssl_verify: False
+  transform_function: "convert_host_data"
+
+runner:
+  plugin: threaded
+  options:
+    num_workers: 10
+
+ssh:
+  config_file: '../ssh_config'

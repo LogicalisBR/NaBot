@@ -1,0 +1,31 @@
+devices:
+  - name: iosxr1
+    site: Sandbox
+    tenant: Sandbox
+    platform: 
+      name: cisco_iosxr
+      manufacturer: Cisco
+    type:
+      name: ASR
+      model: ASR
+    role: Test
+    status: Active
+    interfaces:
+      Loopback0:
+         ipv4_address: 131.226.217.150/32
+         primary: Yes
+  - name: csr1000v-1
+    site: Sandbox
+    tenant: Sandbox
+    platform: 
+      name: cisco_iosxe
+      manufacturer: Cisco
+    type:
+      name: CSR
+      model: momo
+    role: Test
+    status: Active
+    interfaces:
+      Loopback0:
+         ipv4_address: 131.226.217.143/32
+         primary: Yes

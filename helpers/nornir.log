@@ -1,0 +1,17 @@
+2021-11-30 13:10:17,461 -  nornir.core -  WARNING -        run() - Task 'send_command' has not been run – 0 hosts selected
+2021-11-30 13:10:29,072 -  nornir.core -  WARNING -        run() - Task 'send_command' has not been run – 0 hosts selected
+2021-11-30 13:10:42,296 -  nornir.core -  WARNING -        run() - Task 'send_command' has not been run – 0 hosts selected
+2021-11-30 13:10:50,814 -  nornir.core -  WARNING -        run() - Task 'send_command' has not been run – 0 hosts selected
+2021-11-30 13:11:08,574 -  nornir.core -  WARNING -        run() - Task 'send_command' has not been run – 0 hosts selected
+2021-11-30 13:15:32,318 -  nornir.core -     INFO -        run() - Running task 'send_command' with args {'command': 'show running-config'} on 1 hosts
+2021-11-30 13:15:47,114 -  nornir.core -     INFO -        run() - Running task 'send_command' with args {'command': 'show ip route'} on 1 hosts
+2021-11-30 13:19:26,907 -  nornir.core -     INFO -        run() - Running task 'cfg_load_config' with args {'config': 'ntp server 4.4.4.4\n'} on 1 hosts
+2021-11-30 13:19:33,588 -  nornir.core -     INFO -        run() - Running task 'cfg_diff_config' with args {'source': 'running'} on 1 hosts
+2021-11-30 13:19:42,670 -  nornir.core -     INFO -        run() - Running task 'cfg_load_config' with args {'config': 'ntp server 4.4.4.4\n'} on 1 hosts
+2021-11-30 13:19:49,366 -  nornir.core -     INFO -        run() - Running task 'cfg_diff_config' with args {'source': 'running'} on 1 hosts
+2021-11-30 13:19:58,926 -  nornir.core -     INFO -        run() - Running task 'cfg_load_config' with args {'config': 'ntp server 4.4.4.4\n'} on 1 hosts
+2021-11-30 13:20:05,586 -  nornir.core -     INFO -        run() - Running task 'cfg_diff_config' with args {'source': 'running'} on 1 hosts
+2021-11-30 13:20:06,827 -  nornir.core -     INFO -        run() - Running task 'cfg_commit_config' with args {'source': 'running'} on 1 hosts
+2021-11-30 13:20:13,793 -  nornir.core -     INFO -        run() - Running task 'cfg_load_config' with args {'config': 'ntp server 4.4.4.4\n'} on 1 hosts
+2021-11-30 13:20:20,446 -  nornir.core -     INFO -        run() - Running task 'cfg_diff_config' with args {'source': 'running'} on 1 hosts
+2021-11-30 13:20:21,684 -  nornir.core -     INFO -        run() - Running task 'cfg_commit_config' with args {'source': 'running'} on 1 hosts

@@ -1,0 +1,5 @@
+config/config.yaml
+nornir-netbox/.venv/
+*.pyc
+.venv/*
+
