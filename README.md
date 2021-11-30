@@ -48,11 +48,11 @@ cd /path/to/local/repository/
 git clone --recurse-submodules https://github.com/LogicalisBR/NaBot.git
 ```
 
-The file config/nornir_config_example.yaml is a *nornir* configuration file. Rename it to config/nornir_config.yaml and change Netbox URL to point to your Netbox IP address and port number. You can also use the docker-compose file to start a netbox container locally with default credentials (see bellow).
+The file config/nornir_config_example.yaml is a *nornir* configuration file. Rename it to config/nornir_config.yaml and change Netbox URL to point to your Netbox IP address and port number. You can also use the docker-compose file to start a netbox container locally with default credentials (see below).
 
 Also, update the config/config_example.yaml  with the Token you previously generated for your bot and rename it config/config.yaml. This is how the Bot will authenticate with the Webex API.
 
-Build the local docker container environment:
+If you already have a Webex instance in your network, you may just build the main container.
 ```
 # Building for the first time
 ./build.sh
@@ -65,14 +65,20 @@ Build the local docker container environment:
 
 ```
 
+Alternatively to running the above scripts, you can use docker-compose to instantiate a local netbox instance with default credentials.
+```
+docker-compose build
+docker-compose up -d
+```
+
 The docker-compose instantiates two containers:
-1. *network_assistant_bot* automatically mounts the network_assistant_bot/, helpers/ and config/ directories, so you can customize the code and configuration on these directories.
+1. *nabot* automatically mounts the network_assistant_bot/, helpers/ and config/ directories, so you can customize the code and configuration on these directories.
 2. *netbox* will be available locally on port 8000 (open a web browser and visit localhost:8000).
 
 ## Setup Netbox Inventory
 <a href="#netbox"></a>
 
-Default credentials to the Netbox container are:
+Default credentials for the Netbox container are:
 - *username*: admin
 - *password*: admin
 - *api key*:0123456789abcdef0123456789abcdef01234567
