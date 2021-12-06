@@ -107,7 +107,8 @@ def get_config_diff(hostname, candidate_config):
         task=cfg_diff_config,
         source="running")
 
-    output_diff = "=======================\n".join(diff[host].scrapli_response.side_by_side_diff for host in hosts)
+    #output_diff = "=======================\n".join(diff[host].scrapli_response.side_by_side_diff for host in hosts)
+    output_diff = "=======================\n".join(diff[host].scrapli_response.unified_diff for host in hosts)
 
     return output_diff
 
