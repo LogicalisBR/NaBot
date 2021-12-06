@@ -1,4 +1,6 @@
 # Cisco Webex Bot with Netbox data source and Nornir/Scrapli automation
+A sample Cisco Webex bot with Netbox integration and Nornir+Scrapli for Automation. Run show commands, configure devices and get backups from Webex Teams.
+
 ![NaBot](./logicalis-bot.png)
 
 [![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/LogicalisBR/NaBot)
